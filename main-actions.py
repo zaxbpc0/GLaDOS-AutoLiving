@@ -68,7 +68,7 @@ def start():
         time = time.split('.')[0]
         #print(time)
         #notice(time,sckey,sever,mess)
-    pushplus(PUSHPLUSTOKEN, 'GLaDOS日志', mes)
+    pushplus(PUSHPLUSTOKEN, 'GLaDOS日志', mess)
     return mess
 
         
