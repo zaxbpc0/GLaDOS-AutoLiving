@@ -52,3 +52,8 @@ Actions > Cloud189Checkin > build
 
 此后，将会在每天半夜12点多会自动签到一次  
 若有需求，可以在[.github/workflows/python-publish.yml]中自行修改  
+
+# 感谢
+[xiaomustudent/glados-checkin: 自动签到，自动续期，高速富强](https://github.com/xiaomustudent/glados-checkin)   
+[DullSword/GLaDOS-CheckIn: GLaDOS AutoCheckIn 定时自动签到](https://github.com/DullSword/GLaDOS-CheckIn)    
+[zhule0601/glados_checkin: glados 网页端自动签到](https://github.com/zhule0601/glados_checkin)
