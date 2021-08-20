@@ -30,12 +30,12 @@ def pushplus(token, title, content):
         print('PushPlus 推送成功')
         
         
-def qmsg(qmsg_key, qq, msg):
-    url='https://qmsg.zendee.cn/send/' + qmsg_key  #群消息推送接口
-    #url2='https://qmsg.zendee.cn/send/'+qmsg_key  #私聊消息推送接口
+def qmsg(qmsg_key, qq, style): # style: msg,json,xml
+    urlg='https://qmsg.zendee.cn/group/' + qmsg_key  #群消息推送接口
+    urls='https://qmsg.zendee.cn/send/' + qmsg_key   #私聊消息推送接口
     data = {
         "qq": qq,
-        "msg": msg
+        "msg": style
     }
     #body = json.dumps(data).encode(encoding='utf-8')
     #headers = {'Content-Type': 'application/json'}
@@ -69,6 +69,7 @@ def start():
         #print(time)
         #notice(time,sckey,sever,mess)
         pushplus(PUSHPLUSTOKEN, 'GLaDOS日志', mess)
+        qmsg(qmsg_key, qq, msg)
 
         
 def notice(time,sckey,sever,mess):
@@ -81,9 +82,9 @@ def main_handler(event, context):
   return start()
 
 if __name__ == '__main__':
-    #start()
-    pushplus(PUSHPLUSTOKEN, 'GLaDOS日志', 'mess')
-    qmsg(qmsg_key, qq, 'msg')
+    # start()
+    # pushplus(PUSHPLUSTOKEN, 'GLaDOS日志', 'mess')
+    # qmsg(qmsg_key, qq, 'msg')
    
 
     
