@@ -28,7 +28,7 @@ jobs:
       run: |
         python3 main-actions.py
       env: 
-        PUSHPLUS_TOKEN: ${{ secrets.PUSHPLUS_TOKEN }}
+        QW360_TOKEN: ${{ secrets.QW360_TOKEN }}
         COOKIE: ${{ secrets.COOKIE }}
         QQ: ${{ secrets.QQ }}
         QMSG_KEY: ${{ secrets.QMSG_KEY }}
