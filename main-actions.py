@@ -82,7 +82,7 @@ def main_handler(event, context):
   return start()
 
 if __name__ == '__main__':
-    # start()
+    start()
     # pushplus(PUSHPLUSTOKEN, 'GLaDOS日志', 'mess')
     # qmsg(qmsg_key, qq, 'msg')
    
