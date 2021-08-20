@@ -68,7 +68,7 @@ def start():
         time = time.split('.')[0]
         #print(time)
         #notice(time,sckey,sever,mess)
-    pushplus(PUSHPLUSTOKEN, 'GLaDOS日志', mess)
+        pushplus(PUSHPLUSTOKEN, 'GLaDOS日志', mess)
     return mess
 
         
@@ -82,8 +82,8 @@ def main_handler(event, context):
   return start()
 
 if __name__ == '__main__':
-    mes = start()
-    pushplus(PUSHPLUSTOKEN, 'GLaDOS日志', mes)
+    mes = 'start()'
+    #pushplus(PUSHPLUSTOKEN, 'GLaDOS日志', mes)
     qmsg(qmsg_key, qq, 'GLaDOS日志:\n'+mes)
    
 
