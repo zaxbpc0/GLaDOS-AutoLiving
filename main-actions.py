@@ -69,7 +69,7 @@ def start():
         #print(time)
         #notice(time,sckey,sever,mess)
         pushplus(PUSHPLUSTOKEN, 'GLaDOS日志', mess)
-        qmsg(qmsg_key, qq, msg)
+        qmsg(qmsg_key, qq, mess)
 
         
 def notice(time,sckey,sever,mess):
