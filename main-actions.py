@@ -69,7 +69,7 @@ def notice(time,sckey,sever,mess):
         
 def qw360(QW360_TOKEN, mess):
     response = requests.get('https://push.bot.qw360.cn/send/' + QW360_TOKEN + '?msg=' + mess).json()
-    if (response["status"]) != 'true':
+    if (response["status"]) != true:
         print('qw360 推送失败')
     else:
         print('qw360 推送成功')  
