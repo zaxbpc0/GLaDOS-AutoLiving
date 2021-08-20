@@ -67,10 +67,14 @@ def notice(time,sckey,sever,mess):
     else:
         requests.get('https://sc.ftqq.com/' + sckey + '.send?text=通知没打开')
         
+def qw360(mess):
+        requests.get('https://push.bot.qw360.cn/send/eb85cfc0-eb48-11eb-9d35-dfe694f483dd?msg=' + mess)
+        
 def main_handler(event, context):
   return start()
 
 if __name__ == '__main__':
     mes = start()
     qmsg(QMSG_KEY, QQ, '@face=181@ GLaDOS - 签到提醒:\n' + mes)
-    pushplus(PUSHPLUSTOKEN, 'GLaDOS - 签到提醒', mes)
+    qw360(mes)
+    #pushplus(PUSHPLUSTOKEN, 'GLaDOS - 签到提醒', mes)
