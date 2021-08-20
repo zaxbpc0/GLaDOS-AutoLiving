@@ -83,7 +83,7 @@ def main_handler(event, context):
 
 if __name__ == '__main__':
     mes = 'start()'
-    #pushplus(PUSHPLUSTOKEN, 'GLaDOS日志', mes)
+    pushplus(PUSHPLUSTOKEN, 'GLaDOS日志', 'mes')
     qmsg(qmsg_key, qq, 'GLaDOS日志:\n'+mes)
    
 
