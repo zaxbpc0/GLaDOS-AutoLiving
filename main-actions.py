@@ -68,11 +68,11 @@ def notice(time,sckey,sever,mess):
         requests.get('https://sc.ftqq.com/' + sckey + '.send?text=通知没打开')
         
 def qw360(QW360_TOKEN, mess):
-    response = requests.get('https://push.bot.qw360.cn/send/' + QW360_TOKEN + '?msg=' + mess)
+    response = requests.get('https://push.bot.qw360.cn/send/' + QW360_TOKEN + '?msg=' + mess).json()
     if (response["status"]) != 'true':
-        print('PushPlus 推送失败')
+        print('qw360 推送失败')
     else:
-        print('PushPlus 推送成功')  
+        print('qw360 推送成功')  
         
 def main_handler(event, context):
   return start()
