@@ -11,7 +11,7 @@
   注：先复制下面激活码，注册后送3天，包月（10g），如果有教育邮箱可以使用教育plan（360天）（50g）  
       （若是普通邮箱注册，可更改为.edu邮箱，点下面的 for education 进行申请） 
 
-  😁填写激活码：  <font color="#ff0000">XT2BH-9ZPFR-ZJSM3-S1I4I</font> .填写邀请码后，大家都可以额外获得3天免费时长😂  
+  😁填写激活码：**XT2BH-9ZPFR-ZJSM3-S1I4I** 。填写邀请码后，大家都可以额外获得3天免费时长😂  
   
   我相信你们人手一堆教育邮箱，这个网站风控还行 
 ![](http://tu.yaohuo.me/imgs/2020/06/ed0e944eec323a16.png)
@@ -39,14 +39,18 @@
 ![](http://tu.yaohuo.me/imgs/2020/06/34ca160c972b9927.png)
 
 ## 四、查看运行结果
-Actions > Cloud189Checkin > build  
+Actions > GLaDOS-AutoLiving > build  
 能看到如下图所示，表示成功，或者看你微信通知  
 ![](http://tu.yaohuo.me/imgs/2020/06/289432b53bded61c.png)  
   
+## 五、自动运行
+没有放代码，请自行尝试
+
+**因各种原因，本仓库不提供任何Github Actions定时运行脚本，但本脚本可以在本地运行，如果想要自己配置到云函数平台上可自行配置。劝各位耗子尾汁，请不要Fork这个仓库然后提供GitHub Workflow再分发，也不要提供任何单仓库Workflow并分发，特别是定时执行确定的那种。否则由此产生的一切后果自负**
+
+
 # 腾讯云函数
 复制py代码，将三个参数自行修改  
-
-
 
 此后，将会在每天半夜12点多会自动签到一次  
 若有需求，可以在[.github/workflows/python-publish.yml]中自行修改  
