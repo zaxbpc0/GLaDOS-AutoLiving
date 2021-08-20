@@ -1,29 +1,12 @@
 import requests,json,os
 
-PUSHPLUSTOKEN = os.environ["PUSHPLUS_TOKEN"]
+QW360_TOKEN = os.environ["QW360_TOKEN"]
 QQ = os.environ["QQ"]
 QMSG_KEY = os.environ["QMSG_KEY"]
 COOKIE = os.environ["COOKIE"]
     
     
-def pushplus(token, title, content):
-    url = 'http://www.pushplus.plus/send'
-    data = {
-        "token": token,
-        "title": title,
-        "content": content
-    }
-    body = json.dumps(data).encode(encoding='utf-8')
-    headers = {'Content-Type': 'application/json'}
-    rs = requests.post(url, data=body, headers=headers).json()
-    if int(rs["code"] / 100) != 2:
-        print('PushPlus 推送失败')
-    else:
-        print('PushPlus 推送成功')
-        
-        
 def qmsg(qmsg_key, qq, style): # style: msg,json,xml
-    # urlg='https://qmsg.zendee.cn/group/' + qmsg_key  #群消息推送接口
     urls='https://qmsg.zendee.cn/send/' + qmsg_key   #私聊消息推送接口
     data = {
         "qq": qq,
@@ -35,16 +18,12 @@ def qmsg(qmsg_key, qq, style): # style: msg,json,xml
     else:
         print('Qmsg酱 推送成功')
 
-def qw360(QW360_TOKEN, type, content):
-    urlg = 'https://push.bot.qw360.cn/send/' + QW360_TOKEN   #私聊消息推送接口
-    data = {
-        "msg": {
-            "type": type,
-            "url": content
-        }
-    }
-    response = requests.post(urlg,data=data)
-    print(response)
+def qw360(QW360_TOKEN, mess):
+    response = requests.get('https://push.bot.qw360.cn/send/' + QW360_TOKEN + '?msg=' + mess).json()
+    if (response["status"]) != 1:
+        print('qw360 推送失败')
+    else:
+        print('qw360 推送成功') 
         
 def start(): 
     url= "https://glados.rocks/api/user/checkin"
@@ -82,7 +61,6 @@ def main_handler(event, context):
   return start()
 
 if __name__ == '__main__':
-    mes = 'start()'
+    mes = start()
     qmsg(QMSG_KEY, QQ, '@face=181@ GLaDOS - 签到提醒:\n' + mes)
-    qw360('eb85cfc0-eb48-11eb-9d35-dfe694f483dd', 'image', 'content')
-    #pushplus(PUSHPLUSTOKEN, 'GLaDOS - 签到提醒', mes)
+    qw360(QW360_TOKEN, 'GLaDOS - 签到提醒:\n' + mes)
