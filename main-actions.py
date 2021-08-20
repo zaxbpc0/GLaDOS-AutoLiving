@@ -38,10 +38,10 @@ def qmsg(qmsg_key, qq, style): # style: msg,json,xml
     #body = json.dumps(data).encode(encoding='utf-8')
     #headers = {'Content-Type': 'application/json'}
     rs = requests.post(urls,data=data).json()
-    if int(rs["code"] / 1) != 0:
-        print('PushPlus 推送失败')
+    if int(rs["code"] / 100) != 0:
+        print('Qmsg酱 推送失败')
     else:
-        print('PushPlus 推送成功')
+        print('Qmsg酱 推送成功')
 
 
 def start(): 
@@ -68,6 +68,7 @@ def start():
         time = time.split('.')[0]
         #print(time)
         #notice(time,sckey,sever,mess)
+    pushplus(PUSHPLUSTOKEN, 'GLaDOS日志', mes)
     return mess
 
         
@@ -83,7 +84,7 @@ def main_handler(event, context):
 if __name__ == '__main__':
     mes = start()
     pushplus(PUSHPLUSTOKEN, 'GLaDOS日志', mes)
-    qmsg(qmsg_key, qq, 'GLaDOS日志'+mes)
+    qmsg(qmsg_key, qq, 'GLaDOS日志:\n'+mes)
    
 
     
