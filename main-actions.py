@@ -35,16 +35,16 @@ def qmsg(qmsg_key, qq, style): # style: msg,json,xml
     else:
         print('Qmsg酱 推送成功')
 
-def qw360(QW360_TOKEN, mess):
+def qw360(QW360_TOKEN, type, content):
     urlg = 'https://push.bot.qw360.cn/send/' + QW360_TOKEN   #私聊消息推送接口
     data = {
         "msg": {
-            "type": 'image',
-            "url": 'https://wimg.caidan2.com/cuimage/20210722085945_fb94ET_WechatIMG8.png'
+            "type": type,
+            "url": content
         }
     }
-    requests.post(urlg,data=data)
-
+    response = requests.post(urlg,data=data)
+    print(response)
         
 def start(): 
     url= "https://glados.rocks/api/user/checkin"
@@ -84,5 +84,5 @@ def main_handler(event, context):
 if __name__ == '__main__':
     mes = 'start()'
     qmsg(QMSG_KEY, QQ, '@face=181@ GLaDOS - 签到提醒:\n' + mes)
-    qw360('eb85cfc0-eb48-11eb-9d35-dfe694f483dd', 'GLaDOS - 签到提醒:\n' + mes)
+    qw360('eb85cfc0-eb48-11eb-9d35-dfe694f483dd', 'image', 'content')
     #pushplus(PUSHPLUSTOKEN, 'GLaDOS - 签到提醒', mes)
