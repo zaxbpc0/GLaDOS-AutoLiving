@@ -2,7 +2,8 @@ import requests,json,os
 
 
 PUSHPLUSTOKEN = os.environ["PUSHPLUS_TOKEN"]
-
+QQ = os.environ["QQ"]
+QMSG_KEY = os.environ["QMSG_KEY"]
 cookie = os.environ["COOKIE"]
 #'__cfduid=d3459ec306384ca67a65170f8e2a5bd************; _ga=GA1.2.766373509.1593*****72; _gid=GA1.2.1338236108.***********72; koa:sess=eyJ1c2VySW*********************aXJlIjoxNjE4OTY5NTI4MzY4LCJfbWF4QWdl****0=; koa:sess.sig=6qG8SyMh*****LBc9yRviaPvI'
 
@@ -27,6 +28,23 @@ def pushplus(token, title, content):
         print('PushPlus 推送失败')
     else:
         print('PushPlus 推送成功')
+        
+        
+def qmsg(QMSG_KEY, QQ, msg):
+    url='https://qmsg.zendee.cn/group/'+QMSG_KEY  #群消息推送接口
+    url2='https://qmsg.zendee.cn/send/'+QMSG_KEY  #私聊消息推送接口
+    data = {
+        "qq": QQ,
+        "msg": msg
+    }
+    body = json.dumps(data).encode(encoding='utf-8')
+    headers = {'Content-Type': 'application/json'}
+    rs = requests.post(url,data=data).json()
+    if int(rs["code"] / 1) != 0:
+        print('PushPlus 推送失败')
+    else:
+        print('PushPlus 推送成功')
+
 
 def start():
     
@@ -63,7 +81,9 @@ def main_handler(event, context):
   return start()
 
 if __name__ == '__main__':
-    start()
+    #start()
+    pushplus(PUSHPLUSTOKEN, 'GLaDOS日志', 'mess')
+    qmsg(QMSG_KEY, QQ, 'msg')
    
 
     
