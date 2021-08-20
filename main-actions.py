@@ -23,6 +23,7 @@ def pushplus(token, title, content):
     body = json.dumps(data).encode(encoding='utf-8')
     headers = {'Content-Type': 'application/json'}
     rs = requests.post(url, data=body, headers=headers).json()
+    print(rs)
     if int(rs["code"] / 100) != 2:
         print('PushPlus 推送失败')
     else:
