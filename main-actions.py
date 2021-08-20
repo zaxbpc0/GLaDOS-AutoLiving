@@ -41,7 +41,7 @@ def qw360(QW360_TOKEN, mess):
         "type": "image",
         "url": "https://wimg.caidan2.com/cuimage/20210722085945_fb94ET_WechatIMG8.png"
     }
-    response = requests.post(urlg, data=msg).json()
+    response = requests.post(urlg, msg=msg).json()
     if (response["status"]) != 1:
         print('qw360 推送失败')
     else:
