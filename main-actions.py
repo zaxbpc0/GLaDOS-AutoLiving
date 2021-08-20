@@ -1,7 +1,10 @@
 import requests,json,os
 
+
 PUSHPLUSTOKEN = os.environ["PUSHPLUS_TOKEN"]
+
 cookie = os.environ["COOKIE"]
+#'__cfduid=d3459ec306384ca67a65170f8e2a5bd************; _ga=GA1.2.766373509.1593*****72; _gid=GA1.2.1338236108.***********72; koa:sess=eyJ1c2VySW*********************aXJlIjoxNjE4OTY5NTI4MzY4LCJfbWF4QWdl****0=; koa:sess.sig=6qG8SyMh*****LBc9yRviaPvI'
 
 desp = ''  # 空值
 
@@ -61,3 +64,5 @@ def main_handler(event, context):
 
 if __name__ == '__main__':
     start()
+   
+
