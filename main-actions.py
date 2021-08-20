@@ -31,15 +31,15 @@ def pushplus(token, title, content):
         
         
 def qmsg(qmsg_key, qq, msg):
-    url='https://qmsg.zendee.cn/group/'+qmsg_key  #群消息推送接口
-    url2='https://qmsg.zendee.cn/send/'+qmsg_key  #私聊消息推送接口
+    url='https://qmsg.zendee.cn/group/' + qmsg_key  #群消息推送接口
+    #url2='https://qmsg.zendee.cn/send/'+qmsg_key  #私聊消息推送接口
     data = {
         "qq": qq,
         "msg": msg
     }
-    body = json.dumps(data).encode(encoding='utf-8')
+    #body = json.dumps(data).encode(encoding='utf-8')
     headers = {'Content-Type': 'application/json'}
-    rs = requests.post(url,data=data).json()
+    rs = requests.post(url,data=data)
     if int(rs["code"] / 1) != 0:
         print('PushPlus 推送失败')
     else:
