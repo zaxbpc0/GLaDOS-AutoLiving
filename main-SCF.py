@@ -1,11 +1,8 @@
 import requests ,os,json
-# server酱开关，填0不开启(默认)，填2同时开启cookie失效通知和签到成功通知
-sever = 'on'
-# 填写server酱sckey,不开启server酱则不用填（自己更改）
+
+pushsever = 'on'
 sckey = 'SCU89402Tf98b7f01ca3394b9ce9aa5e2ed1a****************'
-# 填入glados账号对应cookie
 cookie = '__cfduid=d825014ac33b402b3f**************'
-referer = 'https://glados.rocks/console/checkin'
 
 def start():  
     url= "https://glados.rocks/api/user/checkin"
@@ -27,11 +24,11 @@ def start():
         time = state.json()['data']['leftDays']
         time = time.split('.')[0]
         #print(time)
-        notice(time,sckey,sever,mess)
+        notice(time,sckey,pushsever,mess)
 
         
-def notice(time,sckey,sever,mess):
-    if sever == 'on':
+def notice(time,sckey,pushsever,mess):
+    if pushsever == 'on':
         requests.get('https://sc.ftqq.com/' + sckey + '.send?text='+mess+'，you have '+time+' days left')
     else:
         requests.get('https://sc.ftqq.com/' + sckey + '.send?text=通知没打开')
