@@ -1,6 +1,5 @@
 import requests,json,os
 
-
 PUSHPLUSTOKEN = os.environ["PUSHPLUS_TOKEN"]
 qq = os.environ["QQ"]
 qmsg_key = os.environ["QMSG_KEY"]
@@ -45,8 +44,7 @@ def qmsg(qmsg_key, qq, style): # style: msg,json,xml
         print('PushPlus 推送成功')
 
 
-def start():
-    
+def start(): 
     url= "https://glados.rocks/api/user/checkin"
     url2= "https://glados.rocks/api/user/status"
     origin = "https://glados.rocks"
@@ -62,12 +60,15 @@ def start():
     if 'message' in checkin.text:
         mess = checkin.json()['message']
         if mess == '\u6ca1\u6709\u6743\u9650':
-            requests.get('https://sc.ftqq.com/' + sckey + '.send?text=cookie过期')
+            #requests.get('https://sc.ftqq.com/' + sckey + '.send?text=cookie过期')
+            print('cookie过期')
+            return 'cookie过期'
+            exit(1)
         time = state.json()['data']['leftDays']
         time = time.split('.')[0]
         #print(time)
         #notice(time,sckey,sever,mess)
-  return mess
+    return mess
 
         
 def notice(time,sckey,sever,mess):
@@ -82,7 +83,7 @@ def main_handler(event, context):
 if __name__ == '__main__':
     mes = start()
     pushplus(PUSHPLUSTOKEN, 'GLaDOS日志', mes)
-    qmsg(qmsg_key, qq, mes)
+    qmsg(qmsg_key, qq, 'GLaDOS日志'+mes)
    
 
     
