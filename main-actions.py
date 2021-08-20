@@ -60,16 +60,16 @@ def start():
     if 'message' in checkin.text:
         mess = checkin.json()['message']
         if mess == '\u6ca1\u6709\u6743\u9650':
-            #requests.get('https://sc.ftqq.com/' + sckey + '.send?text=cookie过期')
-            print('cookie过期')
-            return 'cookie过期'
-            exit(1)
+            requests.get('https://sc.ftqq.com/' + sckey + '.send?text=cookie过期')
+            #print('cookie过期')
+            #return 'cookie过期'
+            #exit(1)
         time = state.json()['data']['leftDays']
         time = time.split('.')[0]
         #print(time)
         #notice(time,sckey,sever,mess)
         pushplus(PUSHPLUSTOKEN, 'GLaDOS日志', mess)
-    return mess
+    #return mess
 
         
 def notice(time,sckey,sever,mess):
