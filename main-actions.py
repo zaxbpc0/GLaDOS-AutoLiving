@@ -39,8 +39,8 @@ def qw360(QW360_TOKEN, mess):
     urlg = 'https://push.bot.qw360.cn/send/' + QW360_TOKEN   #私聊消息推送接口
     data = {
         "msg": {
-            "type": "image",
-            "url": "https://wimg.caidan2.com/cuimage/20210722085945_fb94ET_WechatIMG8.png"
+            "type": 'image',
+            "url": 'https://wimg.caidan2.com/cuimage/20210722085945_fb94ET_WechatIMG8.png'
         }
     }
     requests.post(urlg,data=data)
