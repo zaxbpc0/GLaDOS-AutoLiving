@@ -1,9 +1,9 @@
 import requests,json,os
 
 PUSHPLUSTOKEN = os.environ["PUSHPLUS_TOKEN"]
-qq = os.environ["QQ"]
-qmsg_key = os.environ["QMSG_KEY"]
-cookie = os.environ["COOKIE"]
+QQ = os.environ["QQ"]
+QMSG_KEY = os.environ["QMSG_KEY"]
+COOKIE = os.environ["COOKIE"]
     
     
 def pushplus(token, title, content):
@@ -45,8 +45,8 @@ def start():
     payload={
         'token': 'glados_network'
     }
-    checkin = requests.post(url,headers={'cookie': cookie ,'referer': referer,'origin':origin,'user-agent':useragent,'content-type':'application/json;charset=UTF-8'},data=json.dumps(payload))
-    state =  requests.get(url2,headers={'cookie': cookie ,'referer': referer,'origin':origin,'user-agent':useragent})
+    checkin = requests.post(url,headers={'cookie': COOKIE ,'referer': referer,'origin':origin,'user-agent':useragent,'content-type':'application/json;charset=UTF-8'},data=json.dumps(payload))
+    state =  requests.get(url2,headers={'cookie': COOKIE ,'referer': referer,'origin':origin,'user-agent':useragent})
    # print(res)
 
     if 'message' in checkin.text:
@@ -72,5 +72,5 @@ def main_handler(event, context):
 
 if __name__ == '__main__':
     mes = start()
-    qmsg(qmsg_key, qq, '@face=181@ GLaDOS日志:\n' + mes)
-    pushplus(PUSHPLUSTOKEN, 'GLaDOS日志', mes)
+    qmsg(QMSG_KEY, QQ, '@face=181@ GLaDOS - 签到提醒:\n' + mes)
+    pushplus(PUSHPLUSTOKEN, 'GLaDOS - 签到提醒', mes)
