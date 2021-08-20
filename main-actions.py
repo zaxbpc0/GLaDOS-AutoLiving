@@ -5,7 +5,6 @@ PUSHPLUSTOKEN = os.environ["PUSHPLUS_TOKEN"]
 qq = os.environ["QQ"]
 qmsg_key = os.environ["QMSG_KEY"]
 cookie = os.environ["COOKIE"]
-#'__cfduid=d3459ec306384ca67a65170f8e2a5bd************; _ga=GA1.2.766373509.1593*****72; _gid=GA1.2.1338236108.***********72; koa:sess=eyJ1c2VySW*********************aXJlIjoxNjE4OTY5NTI4MzY4LCJfbWF4QWdl****0=; koa:sess.sig=6qG8SyMh*****LBc9yRviaPvI'
 
 desp = ''  # 空值
 
@@ -68,8 +67,7 @@ def start():
         time = time.split('.')[0]
         #print(time)
         #notice(time,sckey,sever,mess)
-        pushplus(PUSHPLUSTOKEN, 'GLaDOS日志', mess)
-        qmsg(qmsg_key, qq, mess)
+  return mess
 
         
 def notice(time,sckey,sever,mess):
@@ -82,9 +80,9 @@ def main_handler(event, context):
   return start()
 
 if __name__ == '__main__':
-    start()
-    # pushplus(PUSHPLUSTOKEN, 'GLaDOS日志', 'mess')
-    # qmsg(qmsg_key, qq, 'msg')
+    mes = start()
+    pushplus(PUSHPLUSTOKEN, 'GLaDOS日志', mes)
+    qmsg(qmsg_key, qq, mes)
    
 
     
