@@ -35,7 +35,7 @@ def qmsg(qmsg_key, qq, style): # style: msg,json,xml
     urls='https://qmsg.zendee.cn/send/' + qmsg_key   #私聊消息推送接口
     data = {
         "qq": qq,
-        "msg": style
+        "style": style
     }
     #body = json.dumps(data).encode(encoding='utf-8')
     #headers = {'Content-Type': 'application/json'}
